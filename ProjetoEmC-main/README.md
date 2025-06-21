@@ -6,10 +6,15 @@ Este projeto tem como objetivo desenvolver uma espécie de aplicativo bancário 
 
 ## 💡 O que esse programa faz?
 
-Atualmente (atualizado em 18/06/2025), o programa possui apenas a funcionalidade de:
+### Atualmente (atualizado em 18/06/2025), o programa possui apenas a funcionalidade de:
 
 - Criar uma conta bancária
 - Gerar número de agência e número da conta de forma aleatória
+
+### Atualmente (atualizado em 21/06/2025), o programa possui as funcionalidade de:
+- Permite criar conta
+- Entrar na conta criada
+- Exibição as funções
 
 ## 🔧 Futuros Passos
 
