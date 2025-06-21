@@ -60,40 +60,40 @@ int entrarConta(Conta *contaLogada) {
     char emailDigitado[60];
     int senhaDigitada;
 
-    getchar();
-
-    
-
+    getchar();  // Limpa o buffer do teclado
 
     printf("Digite seu Email: ");
     fgets(emailDigitado, 60, stdin);
-    emailDigitado[strcspn(emailDigitado, "\n")] = '\0';  // remove o \n lido do teclado
+    emailDigitado[strcspn(emailDigitado, "\n")] = '\0';  // Remove o \n
 
     printf("Digite sua senha: ");
     scanf("%d", &senhaDigitada);
 
-
     FILE *arquivos = fopen("Contas.txt", "r");
     if (arquivos == NULL) {
-
-        printf ("Erro ao abrir o arquivo.\n");
+        printf("Erro ao abrir o arquivo.\n");
         return 0;
     }
-    
+
+    char linha[200];
     Conta temp;
-    while (fscanf(arquivos, "%s %d %d %d", temp.email, &temp.senha, &temp.agencia, &temp.digito) == 4) { // so entr no looping e tiver 4 valores para ler
-        if (strcmp(temp.email, emailDigitado) == 0 && temp.senha == senhaDigitada) { // strcmp compara strings. Então, se o email e senha forem iguais, entra no if
+
+    while (fgets(linha, sizeof(linha), arquivos)) {
+        sscanf(linha, "%s %d %d %d", temp.email, &temp.senha, &temp.agencia, &temp.digito);
+        if (strcmp(temp.email, emailDigitado) == 0 && temp.senha == senhaDigitada) {
             printf("Login bem-sucedido!\n");
             printf("Agência: %d - Conta: %d\n", temp.agencia, temp.digito);
-            *contaLogada = temp; 
+            *contaLogada = temp;
             fclose(arquivos);
-            return 1; 
-           
+            return 1;
         }
     }
+
     fclose(arquivos);
-    return 0; // se não encontrar o email e senha
+    return 0; // se não encontrar
 }
+
+
 int main (){
     printf("----- Bem vindo ao Banco VitinhoBank -----\n");
     
