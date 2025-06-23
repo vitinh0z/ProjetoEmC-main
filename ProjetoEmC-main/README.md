@@ -13,7 +13,7 @@ Este projeto tem como objetivo desenvolver uma espécie de aplicativo bancário 
 
 ### Atualmente (atualizado em 21/06/2025), o programa possui as funcionalidade de:
 - Permite criar conta
-- Entrar na conta criada
+- Entrar na conta que usuario criou
 - Exibição as funções
 
 ## 🔧 Futuros Passos
